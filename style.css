@@ -260,11 +260,48 @@
     gap: 0.5rem 1rem;
     flex-wrap: wrap;
   }
+
+  [aria-controls="primary-nav"] {
+    z-index: 100;
+    background: transparent;
+    border: none;
+    img {
+      border-radius: 0;
+    }
+  }
+
   .primary-navigation {
     ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
-      gap: 0.5rem 1rem;
       flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @media (width < 760px) {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 2rem;
+      background-color: var(--background-accent-main);
+      ul {
+        flex-direction: column;
+        font-size: var(--fs-700);
+        font-family: var(--ff-heading);
+        font-weight: 700;
+      }
+      li + li {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px solid var(--background-accent-light);
+      }
     }
   }
 
