@@ -31,6 +31,11 @@
     margin: 0;
     padding: 0;
   }
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   body {
     min-block-size: 100vh;
@@ -212,6 +217,22 @@
 
     &[data-width="wide"] {
       max-width: 1330px;
+    }
+  }
+}
+
+@layer component {
+  .site-header__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+  .primary-navigation {
+    ul {
+      display: flex;
+      gap: 0.5rem 1rem;
+      flex-wrap: wrap;
     }
   }
 }
