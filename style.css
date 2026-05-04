@@ -193,6 +193,15 @@
 }
 
 @layer layout {
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+
+  .grid-flow {
+    display: grid;
+    gap: var(--grid-flow-gap, 1rem);
+  }
+
   .equals-columns {
     display: grid;
     gap: var(--equal-gap, 1rem);
@@ -257,6 +266,16 @@
       gap: 0.5rem 1rem;
       flex-wrap: wrap;
     }
+  }
+  .hero {
+    text-align: center;
+    background-image: url(/assets/hero.webp);
+    background-size: cover;
+    font-size: var(--font-size-md);
+    color: var(--text-high-contrast);
+  }
+  .hero > span {
+    display: block;
   }
 }
 
