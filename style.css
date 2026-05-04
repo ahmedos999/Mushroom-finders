@@ -193,6 +193,29 @@
 }
 
 @layer layout {
+  .equals-columns {
+    display: grid;
+    gap: var(--equal-gap, 1rem);
+    align-items: var(--column-layout-alignment, start);
+
+    &[data-gap="large"] {
+      gap: 2rem;
+    }
+
+    &[data-vertical-aligment="centerd"] {
+      align-items: center;
+    }
+
+    &[data-vertical-aligment="bottom"] {
+      align-items: end;
+    }
+
+    @media (width > 760px) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+  }
+
   .section {
     padding-block: 3.75rem;
 
