@@ -201,6 +201,16 @@
     display: grid;
     gap: var(--grid-flow-gap, 1rem);
   }
+  .grid-auto-fit {
+    --min-auto-grid-col: 250px;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--min-auto-grid-col), 100%), 1fr)
+    );
+  }
 
   .equals-columns {
     display: grid;
