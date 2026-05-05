@@ -208,13 +208,13 @@
     display: grid;
     gap: var(--grid-flow-gap, 1rem);
   }
-  .grid-auto-fit {
+  .grid-auto-fill {
     --min-auto-grid-col: 250px;
 
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(
-      auto-fit,
+      auto-fill,
       minmax(min(var(--min-auto-grid-col), 100%), 1fr)
     );
   }
@@ -541,6 +541,9 @@
 }
 
 @layer utilities {
+  [hidden] {
+    display: none;
+  }
   .text-center {
     text-align: center;
   }
