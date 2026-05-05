@@ -193,6 +193,11 @@
 }
 
 @layer layout {
+  .flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
   .flow > * + * {
     margin-block-start: var(--flow-space, 1em);
   }
@@ -390,7 +395,8 @@
   }
 
   .card {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     padding: 1rem;
     background-color: var(--background-light);
@@ -403,6 +409,13 @@
   .card__title {
     color: var(--card-title-color, var(--text-brand));
     font-size: var(--card-title-font-size, var(--font-size-heading-sm));
+  }
+
+  .card__note {
+    margin-top: auto;
+    background-color: var(--background-extra-light);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-2);
   }
 
   .button {
@@ -421,6 +434,45 @@
   .button:focus-visible {
     background: var(--background-accent-light);
     color: var(--text-high-contrast);
+  }
+
+  select {
+    font-family: var(--ff-heading);
+    background-color: var(--background-accent-main);
+    color: var(--text-high-contrast);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border: 0;
+    border-radius: var(--border-radius-2);
+  }
+
+  .tag-list {
+    display: flex;
+    gap: var(--tag-list-gap, 12px);
+    > li {
+      padding: 0 0.5rem;
+      color: var(--text-high-contrast);
+      font-family: var(--ff-heading);
+      font-size: var(--font-size-sm);
+      background-color: var(--tag-background);
+      border-radius: var(--border-radius-1);
+
+      &[data-edible="edible"] {
+        --tag-background: var(--background-accent-main);
+      }
+      &[data-edible="toxic"] {
+        --tag-background: var(--clr-red-500);
+      }
+
+      &[data-season="summer"] {
+        --tag-background: var(--background-accent-main);
+      }
+      &[data-season="fall"] {
+        --tag-background: var(--clr-orange-500);
+      }
+      &[data-season="spring"] {
+        --tag-background: var(--clr-teal-500);
+      }
+    }
   }
 }
 
