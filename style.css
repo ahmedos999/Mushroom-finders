@@ -433,6 +433,13 @@
     background-size: cover;
     font-size: var(--font-size-md);
     color: var(--text-high-contrast);
+
+    /* the name of the animation and the last status werid to group them in one property  */
+    animation: fade-out forwards;
+    /* only two options here view and scroll and somehow it's a function () */
+    animation-timeline: view();
+    /* when dose the animation start with respect to the timeline */
+    animation-range-start: exit;
   }
   .hero__title {
     font-size: var(--font-size-heading-lg);
@@ -589,6 +596,10 @@
 }
 
 @layer utilities {
+  .resizing {
+    animation: none !important;
+    transition: none !important;
+  }
   [hidden] {
     display: none;
   }
@@ -647,5 +658,14 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
