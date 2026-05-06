@@ -10,3 +10,15 @@ navToggle.addEventListener("click", () => {
     navToggle.setAttribute("aria-expanded", "false");
   }
 });
+
+// To remove/stop the animations from when users resize the screen
+const resizeObserver = new ResizeObserver((entries) => {
+  document.body.classList.add("resizing");
+
+  requestAnimationFrame(() => {
+    document.body.classList.remove("resizing");
+  });
+});
+
+// Observe the document body
+resizeObserver.observe(document.body);
